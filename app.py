@@ -11,7 +11,8 @@ import pickle
 
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler
+from sklearn import preprocessing
+from preprocessing import StandardScaler
 
 
 
