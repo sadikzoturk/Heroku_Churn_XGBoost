@@ -31,13 +31,13 @@ def clean_data(df_x):
 
 
 
-
+"""
 def standardize_data(dta):
                         
     scaler = pickle.load(open("std_scaler.pkl", 'rb'))
     X_transformed = scaler.transform(dta)
     return X_transformed
-
+"""
 
 
 
@@ -65,15 +65,20 @@ def predict():
     main_df = sample_df.append(clean_df,sort=False)
     main_df = main_df.fillna(0)
     print(main_df)
+    std_df = main_df.copy()
 
-
-
-
-
+    
+    std_df = std_df.astype(float)
+    """
     std_df = standardize_data(main_df)
     print("std_df yazdırılıyor ******************************")
     print(std_df)
-    
+    """
+    print("DATALAR YAZDIRILIYOR *******************************************************")
+    print(type(std_df))
+    print("DATALAR YAZDIRILIYOR *******************************************************")
+    print(std_df)
+    print("DATALAR YAZDIRILIYOR *******************************************************")
     clf = pickle.load(open('model.pkl', 'rb'))
     pred = clf.predict_proba(std_df)
 
