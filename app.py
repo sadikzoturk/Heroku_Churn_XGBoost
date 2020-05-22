@@ -9,8 +9,7 @@ import json
 import pickle
 
 
-from sklearn import preprocessing 
-from sklearn.preprocessing import MinMaxScaler
+import sklearn  
 
 
 
@@ -24,7 +23,7 @@ main_cols = pickle.load(open("columns.pkl", 'rb'))
 
 
 def clean_data(df_x):
-    le = preprocessing.LabelEncoder()
+    le = sklearn.preprocessing.LabelEncoder()
     df_x.Gender = le.fit_transform(df_x.Gender)
     df_x = pd.get_dummies(data = df_x,  columns=["Geography"], drop_first = False)
     return df_x
