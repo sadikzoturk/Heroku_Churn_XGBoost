@@ -10,6 +10,7 @@ import pickle
 
 
 from sklearn import preprocessing 
+from sklearn.preprocessing import MinMaxScaler
 
 
 
