@@ -10,6 +10,7 @@ import pickle
 
 
 import sklearn  
+from sklearn import preprocessing
 
 
 
@@ -23,7 +24,7 @@ main_cols = pickle.load(open("columns.pkl", 'rb'))
 
 
 def clean_data(df_x):
-    le = sklearn.preprocessing.LabelEncoder()
+    le = preprocessing.LabelEncoder()
     df_x.Gender = le.fit_transform(df_x.Gender)
     df_x = pd.get_dummies(data = df_x,  columns=["Geography"], drop_first = False)
     return df_x
