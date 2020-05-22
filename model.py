@@ -4,12 +4,8 @@
 
 import pandas as pd
 import numpy as np
-from sklearn.externals import joblib 
 import pickle
-
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler
+import sklearn
 
 import lightgbm as lgb
 from sklearn import metrics
@@ -39,8 +35,8 @@ X_train, X_test, y_train, y_test = train_test_split(df_x, df_y, test_size = 0.2,
 pickle.dump(df_x.columns, open("columns.pkl", 'wb'))
 
 
-from sklearn.preprocessing import MinMaxScaler
-scaler = MinMaxScaler().fit(X_train)
+
+scaler = sklearn.preprocessing.MinMaxScaler().fit(X_train)
 X_train = scaler.transform(X_train)
 
 # transform testing dataabs
@@ -58,7 +54,7 @@ model.fit(X_train, y_train)
 # *****************************************************************************************
 
 
-from sklearn.metrics import classification_report,confusion_matrix,accuracy_score,roc_curve,auc
+#from sklearn.metrics import classification_report,confusion_matrix,accuracy_score,roc_curve,auc
 predictions = model.predict(X_test)
 #print ("\naccuracy_score :",accuracy_score(y_test,predictions))
 
