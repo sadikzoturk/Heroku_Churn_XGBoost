@@ -80,7 +80,7 @@ def predict():
     print(std_df)
     print("DATALAR YAZDIRILIYOR *******************************************************")
     clf = pickle.load(open('model.pkl', 'rb'))
-    pred = clf.predict_proba(std_df)
+    pred = clf.predict(std_df)
 
     print("pred yazdırılıyor ******************************")
     print(pred)
@@ -93,7 +93,7 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
 
 
