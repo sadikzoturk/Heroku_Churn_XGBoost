@@ -85,7 +85,7 @@ def predict():
     print("pred yazdırılıyor ******************************")
     print(pred)
     #x = round(pred*100, 2)
-    x = pred[1]*100
+    x = pred[0]*100
 
 
     return render_template('index.html', predicted_value="XGBoost - Customer Churn rate: {}".format(x))
