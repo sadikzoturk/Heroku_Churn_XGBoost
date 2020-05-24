@@ -80,15 +80,23 @@ def predict():
     print(std_df)
     print("DATALAR YAZDIRILIYOR *******************************************************")
     clf = pickle.load(open('model.pkl', 'rb'))
-    pred = clf.predict_proba(std_df)
+    pred = clf.predict(std_df)
 
     print("pred yazdırılıyor ******************************")
     print(pred)
+    
     #x = round(pred*100, 2)
-    x = pred[0]*100
+   
+    x = pred
+    if x == 1:
+        
+        return render_template('index.html', predicted_value="The customer's churn status is {}.  It can be risky to give  the credit to the customer.".format(x))
+    else:
+        
+        return render_template('index.html', predicted_value="The customer's churn status is {}.  It may not be risky to give  the credit to the customer".format(x))
 
 
-    return render_template('index.html', predicted_value="XGBoost - Customer Churn rate: {}".format(x))
+
     
 
 
